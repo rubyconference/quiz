@@ -10,35 +10,35 @@ Here are some examples of possible usage:
 
 ```ruby
 lucky = Regexp.build(3, 7)
-"7"  =~ lucky # => true
-"13" =~ lucky # => false
-"3"  =~ lucky # => true
+"7"  =~ lucky # => truthy
+"13" =~ lucky # => falsey
+"3"  =~ lucky # => truthy
 ```
 
 ```ruby
 month = Regexp.build(1..12)
-"0"  =~ month # => false
-"1"  =~ month # => true
-"12" =~ month # => true
+"0"  =~ month # => falsey
+"1"  =~ month # => truthy
+"12" =~ month # => truthy
 ```
 
 ```ruby
 day = Regexp.build(1..31)
-"6"    =~ day # => true
-"16"   =~ day # => true
-"Tues" =~ day # => false
+"6"    =~ day # => truthy
+"16"   =~ day # => truthy
+"Tues" =~ day # => falsey
 ```
 
 ```ruby
 year = Regexp.build(98, 99, 2000..2005)
-"04"   =~ year # => false
-"2004" =~ year # => true
-"99"   =~ year # => true
+"04"   =~ year # => falsey
+"2004" =~ year # => truthy
+"99"   =~ year # => truthy
 ```
 
 ```ruby
 num = Regexp.build(0..1_000_000)
-"-1" =~ num # => false
+"-1" =~ num # => falsey
 ```
 
 
