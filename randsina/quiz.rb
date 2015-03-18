@@ -1,13 +1,18 @@
 class Regexp
   def self.build(*args)
-    str = args.join('|')
-    Regexp.new(/\A(?:#{str})\z/)
-    # /\A(?:7|3)\z/
+    reg = args.map do |arg|
+      if arg.is_a? Range
+        arg.to_a
+      else
+        arg
+      end
+    end
+    Regexp.new(/\A(?:#{reg.flatten.uniq.join('|')})\z/)
   end
 end
 
 lucky = Regexp.build(3, 7)
-puts "7"  =~ lucky # => true
+p "7"  =~ lucky # => true
 p "13" =~ lucky # => false
 p "3"  =~ lucky # => true
 
