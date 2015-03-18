@@ -1,11 +1,8 @@
+# Add a class method 'build' to Regexp
 class Regexp
   def self.build(*args)
     reg = args.map do |arg|
-      if arg.is_a? Range
-        arg.to_a
-      else
-        arg
-      end
+      arg.is_a?(Range) ? arg.to_a : arg
     end
     Regexp.new(/\A(?:#{reg.flatten.uniq.join('|')})\z/)
   end
