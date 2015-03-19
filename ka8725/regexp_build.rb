@@ -129,6 +129,7 @@ class Regexp
   end
 end
 
+exit unless $PROGRAM_NAME == __FILE__
 
 # Some tests for the code above.
 # To run the test use the following command: ruby regexp_build.rb
